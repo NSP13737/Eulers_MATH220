@@ -9,7 +9,7 @@ def eulers(time_step, sim_length, initial_value):
     time_points = np.array([0])
     
     while time <= sim_length:
-        new_val = past_val + time_step*(past_val - time_step)
+        new_val = past_val + time_step*(past_val - time)
         solution_points = np.append(solution_points, new_val)
 
         time += time_step
@@ -20,7 +20,7 @@ def eulers(time_step, sim_length, initial_value):
 
 
 first_solution, time_points1 = eulers(0.1, 1, 1)
-second_solution, time_points2 = eulers(0.00025, 1, 1)
+second_solution, time_points2 = eulers(0.025, 1, 1)
 
 plt.plot(time_points1, first_solution)
 plt.plot(time_points2, second_solution)
